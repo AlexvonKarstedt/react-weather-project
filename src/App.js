@@ -7,11 +7,10 @@ function App() {
     <div className="App">
       <div className ="Container">   
       <header>
-        Weather App
-        <Weather />
       </header>
+      <Weather />
       <footer>
-    Open-Source code by <a href ="https://github.com/AlexvonKarstedt/react-weather-project" target="_">Alexandra von Karstedt</a> 
+         Open-Source code by <a href ="https://github.com/AlexvonKarstedt/react-weather-project" target="_">Alexandra von Karstedt</a> 
     </footer>
     </div>
     </div>

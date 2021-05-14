@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+import Loader from "react-loader-spinner";
 import './Weather.css'
 
-export default function Weather (){
+export default function Weather (props){
   const [weatherData, setWeatherData] = useState({ready: false});
   function handleResponse(response){
     console.log(response.data);
@@ -58,10 +59,15 @@ setWeatherData({
 
   } else {const apiKey= "d38b3fbab5d2bec8684d5a27e2c576ad";
   let city ="Barrie"
-  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
-  return "Loading..."
+  return (<Loader
+    type="ThreeDots"
+    color="purple"
+    height={100}
+    width={100}
+  />);
 }
   
   

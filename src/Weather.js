@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios';
 import './Weather.css'
 export default function Weather (){
+  const [temperature, setTemperature] =useState(null);
   function showTemperature(response){
     console.log(response.data);
   let city ="Barrie"

@@ -43,9 +43,10 @@ export default function Weather (){
       
     );
     function showTemperature(response){
+      console.log(response.data.main)
     let apiKey= "cbb6323d0382dcd07e77ddd98560a19c";
     let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q={Barrie}&appid=${apiKey}&units=metric`;
-console.table(apiUrl);
+
 axios(apiUrl).get(showTemperature);
 }
   }

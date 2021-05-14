@@ -2,7 +2,15 @@ import React from 'react'
 import axios from 'axios';
 import './Weather.css'
 export default function Weather (){
-    return (
+  function showTemperature(response){
+    console.log(response.data);
+  let city ="Barrie"
+  const apiKey= "d38b3fbab5d2bec8684d5a27e2c576ad";
+  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+axios(apiUrl).get(showTemperature);
+}  
+  return (
         <div className ="Weather"> 
         <form>
             <div className = "row">
@@ -42,11 +50,5 @@ export default function Weather (){
       </div>
       
     );
-    function showTemperature(response){
-      console.log(response.data.main)
-    let apiKey= "cbb6323d0382dcd07e77ddd98560a19c";
-    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q={Barrie}&appid=${apiKey}&units=metric`;
 
-axios(apiUrl).get(showTemperature);
-}
   }

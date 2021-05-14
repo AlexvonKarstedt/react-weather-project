@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 import './Weather.css'
 export default function Weather (){
     return (
@@ -41,4 +42,10 @@ export default function Weather (){
       </div>
       
     );
+    function showTemperature(response){
+    let apiKey= "cbb6323d0382dcd07e77ddd98560a19c";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q={Barrie}&appid=${apiKey}&units=metric`;
+console.table(apiUrl);
+axios(apiUrl).get(showTemperature);
 }
+  }

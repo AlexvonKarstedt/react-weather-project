@@ -26,7 +26,7 @@ if (unit === "celsius") {
 return (
     <div className="WeatherTemperature">
     <span className="temperature"><strong> {Math.round(props.fahrenheit)} </strong></span>
-    <span className ="units">  
+    <span className ="unit">  
         <a href ="#" onClick={showCelsius}> ℃ </a>{" "} | {" "}℉</span>
     </div>
     );

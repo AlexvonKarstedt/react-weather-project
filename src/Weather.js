@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import Forecast from './Forecast'
 import WeatherInfo from './WeatherInfo';
-import WeatherForecast from './WeatherForecast';
 import Loader from "react-loader-spinner";
 
 import './Weather.css'
@@ -57,13 +57,14 @@ function search (){
           </div>
           </div>
           </form>   
-          <WeatherInfo data = {weatherData} /> 
-          <WeatherForecast />  
+          <WeatherInfo data = {weatherData} />      
+          <Forecast />
    </div>
   );
 } else {
 search ();
-  return (<Loader
+  return (
+  <Loader
     type="ThreeDots"
     color="purple"
     height={100}

@@ -2,11 +2,13 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import WeatherInfo from './WeatherInfo';
 import Loader from "react-loader-spinner";
+import ReactAnimatedWeather from 'react-animated-weather';
 import './Weather.css'
 
 export default function Weather (props){
   const [weatherData, setWeatherData] = useState({ready: false});
   const [city, setCity] = useState (props.defaultCity);
+  
   function handleResponse(response){
   setWeatherData({
   ready: true,
@@ -16,11 +18,13 @@ export default function Weather (props){
   city: response.data.name,
   description: response.data.weather[0].description,
   date: new Date(response.data.dt*1000),
+  iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`, 
+  icon: response.data.weather[0].icon,
 });
   }
 function search (){
   const apiKey= "d38b3fbab5d2bec8684d5a27e2c576ad";
-  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 }
 
